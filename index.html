@@ -64,6 +64,7 @@ body{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+#sync-status{ font-size:11px; color:var(--muted); min-height:14px; }
 #data-tools{ display:flex; gap:8px; flex-shrink:0; }
 .tool-btn{
   padding:7px 14px;
@@ -435,7 +436,7 @@ body{
 </style>
 </head>
 <body>
-<header id="top-bar"><div id="flowers-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg></div><div id="header-mid"><div id="counter">&#x1F338; <span id="count-num">0</span> cards studied today</div><div id="daily-msg"></div></div><div id="data-tools"><button class="tool-btn" id="import-btn" onclick="document.getElementById('import-file-input').click()">&#x1F4E5; Import JSON</button><input type="file" id="import-file-input" accept=".json,application/json" onchange="handleImportInputChange(event)" style="display:none"><button class="tool-btn" id="export-btn" onclick="exportDeck()">&#x1F4E4; Export Deck</button></div><div id="flowers-r"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg></div></header>
+<header id="top-bar"><div id="flowers-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg></div><div id="header-mid"><div id="counter">&#x1F338; <span id="count-num">0</span> cards studied today</div><div id="daily-msg"></div><div id="sync-status"></div></div><div id="data-tools"><button class="tool-btn" id="import-btn" onclick="document.getElementById('import-file-input').click()">&#x1F4E5; Import JSON</button><input type="file" id="import-file-input" accept=".json,application/json" onchange="handleImportInputChange(event)" style="display:none"><button class="tool-btn" id="export-btn" onclick="exportDeck()">&#x1F4E4; Export Deck</button><button class="tool-btn" id="sync-btn" onclick="promptSyncCode()">&#x1F504; Sync</button></div><div id="flowers-r"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="28" height="28" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg></div></header>
 <button id="sidebar-toggle" onclick="toggleSidebar()" aria-label="Quick study menu">&#x2630;</button><div id="sidebar"><div id="sidebar-header">Quick Study</div><button class="sidebar-btn" onclick="startDue()">&#x1F4C5; Due Today (<span id="due-count-side">0</span>)</button></div>
 <div id="nav-section"><div id="breadcrumb"></div><div id="pill-row"></div></div>
 <div id="welcome"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="80" height="80" style="display:inline-block;vertical-align:middle;"><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(0 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(72 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(144 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFB6C1" transform="rotate(216 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="10" fill="#FFCDD5" transform="rotate(288 30 30)"/><circle cx="30" cy="30" r="7" fill="#FFE066"/><circle cx="30" cy="30" r="4" fill="#FFD700"/></svg><p>Select a subject above to begin studying &#x1F338;</p><p style="font-size:13px;margin-top:8px">Or choose Due Today to review scheduled cards</p><button onclick="startDue()" id="due-btn">&#x1F4C5; Study Due Cards (<span id="due-count">0</span>)</button></div>
@@ -743,6 +744,135 @@ function saveTodayCount(n){
   catch(e){}
 }
 
+/* ---------- Cross-device sync (Firebase Firestore, best-effort) ---------- */
+var FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCl91oIyw4xygQkk-aE4ITV81Laq0oo0iA",
+  authDomain: "sqe-project-b4a13.firebaseapp.com",
+  projectId: "sqe-project-b4a13",
+  storageBucket: "sqe-project-b4a13.firebasestorage.app",
+  messagingSenderId: "123545163441",
+  appId: "1:123545163441:web:1939e00447c3e19d6bb490"
+};
+var fbDb = null;
+var fbReady = false;
+var syncPushTimer = null;
+var SYNC_DEBOUNCE_MS = 4000;
+
+function getSyncCode(){
+  try { return localStorage.getItem("jui_sync_code") || ""; }
+  catch(e){ return ""; }
+}
+function setSyncCode(code){
+  try { localStorage.setItem("jui_sync_code", code); }
+  catch(e){}
+}
+function setSyncStatus(text){
+  var el = document.getElementById("sync-status");
+  if (el) el.textContent = text;
+}
+function syncDocRef(){
+  var code = getSyncCode();
+  if (!code || !fbDb) return null;
+  return fbDb.collection("syncs").doc(code.trim().toLowerCase());
+}
+// Per-card merge: whichever side reviewed that specific card more recently wins.
+// This means progress made on two devices since the last sync is never lost,
+// even for different cards.
+function mergeProgress(local, remote){
+  var merged = {};
+  var ids = {};
+  Object.keys(local || {}).forEach(function(k){ ids[k] = 1; });
+  Object.keys(remote || {}).forEach(function(k){ ids[k] = 1; });
+  Object.keys(ids).forEach(function(id){
+    var l = local && local[id];
+    var r = remote && remote[id];
+    if (l && r) merged[id] = (r.last || 0) > (l.last || 0) ? r : l;
+    else merged[id] = l || r;
+  });
+  return merged;
+}
+function pullAndMerge(cb){
+  var ref = syncDocRef();
+  if (!ref){ if (cb) cb(); return; }
+  setSyncStatus("☁ syncing…");
+  ref.get().then(function(snap){
+    if (snap.exists){
+      var remote = snap.data() || {};
+      var merged = mergeProgress(loadProgress(), remote.progress || {});
+      saveProgress(merged);
+      updateDueCount();
+      renderPills();
+    }
+    setSyncStatus("☁ synced just now");
+    if (cb) cb();
+  }).catch(function(err){
+    console.warn("Sync pull failed:", err);
+    setSyncStatus("☁ offline");
+    if (cb) cb();
+  });
+}
+function pushProgress(){
+  var ref = syncDocRef();
+  if (!ref || !fbReady) return;
+  ref.set({ progress: loadProgress(), updatedAt: Date.now() }, { merge: true })
+    .then(function(){ setSyncStatus("☁ synced just now"); })
+    .catch(function(err){
+      console.warn("Sync push failed:", err);
+      setSyncStatus("☁ offline");
+    });
+}
+function scheduleSyncPush(){
+  if (!getSyncCode()) return;
+  clearTimeout(syncPushTimer);
+  setSyncStatus("☁ syncing…");
+  syncPushTimer = setTimeout(pushProgress, SYNC_DEBOUNCE_MS);
+}
+function initFirebaseSync(){
+  if (typeof firebase === "undefined") return;
+  try {
+    firebase.initializeApp(FIREBASE_CONFIG);
+    fbDb = firebase.firestore();
+    firebase.auth().signInAnonymously().then(function(){
+      fbReady = true;
+      if (getSyncCode()) pullAndMerge();
+    }).catch(function(err){ console.warn("Firebase auth failed:", err); });
+  } catch(e){
+    console.warn("Firebase init failed:", e);
+  }
+}
+function loadFirebaseSdk(){
+  var base = "https://www.gstatic.com/firebasejs/10.12.2/";
+  var scripts = ["firebase-app-compat.js", "firebase-auth-compat.js", "firebase-firestore-compat.js"];
+  function loadNext(i){
+    if (i >= scripts.length){ initFirebaseSync(); return; }
+    var s = document.createElement("script");
+    s.src = base + scripts[i];
+    s.onload = function(){ loadNext(i + 1); };
+    s.onerror = function(){ console.warn("Firebase SDK failed to load (offline?)"); setSyncStatus(getSyncCode() ? "☁ offline" : ""); };
+    document.head.appendChild(s);
+  }
+  loadNext(0);
+}
+function promptSyncCode(){
+  var existing = getSyncCode();
+  var msg = existing
+    ? "Synced with code: " + existing + "\n\nEnter a new code to switch devices, or press Cancel to keep this one and sync now."
+    : "Enter a sync code to link this device with your others (any word, e.g. JUI2026). Use the exact same code on every device to share progress.";
+  var code = prompt(msg, existing || "");
+  if (code === null){
+    if (existing) pullAndMerge(function(){ pushProgress(); });
+    return;
+  }
+  code = code.trim();
+  if (!code) return;
+  setSyncCode(code);
+  if (!fbReady){ alert("Still connecting — try Sync again in a moment."); return; }
+  pullAndMerge(function(){
+    pushProgress();
+    alert("Synced! Use the code \"" + code + "\" on your other device's Sync button too.");
+  });
+}
+
 function sm2(prev, quality){
   prev = prev || { interval:0, reps:0, ease:2.5, hist:[] };
   var ease = prev.ease || 2.5;
@@ -988,6 +1118,7 @@ function rate(quality){
   var p = loadProgress();
   p[card.id] = sm2(p[card.id], quality);
   saveProgress(p);
+  scheduleSyncPush();
   var n = loadTodayCount() + 1;
   saveTodayCount(n);
   document.getElementById("count-num").textContent = n;
@@ -1090,6 +1221,11 @@ if ("serviceWorker" in navigator){
     });
   });
 }
+
+// Load the Firebase SDK lazily, after the app shell has already rendered and
+// initialized from localStorage. Sync is a best-effort layer on top of the
+// fully offline-capable app, not a requirement for it to work.
+loadFirebaseSdk();
 
 </script>
 </body>

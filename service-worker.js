@@ -3,7 +3,7 @@
 // offline. Card progress itself lives in localStorage, not here, so it is
 // untouched by cache updates.
 
-const CACHE_VERSION = "jui-sqe1-v1";
+const CACHE_VERSION = "jui-sqe1-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
