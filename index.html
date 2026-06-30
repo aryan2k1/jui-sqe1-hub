@@ -1537,6 +1537,14 @@ function rate(quality){
   updateTodayRatingCounts();
   if (n % 50 === 0) showCongrats(n);
 
+  // Again cards don't leave the session: requeue at the end of the
+  // current round instead of waiting for tomorrow's SM-2 due date.
+  // They keep recycling to the back of the queue until rated
+  // Hard/Good/Easy ("graduated"), at which point this no longer applies.
+  if (quality === 0){
+    SESS.cards.push(card);
+  }
+
   if (SESS.idx < SESS.cards.length - 1){
     SESS.idx++;
     showCard();
